@@ -15,22 +15,22 @@ void Delay_Init(void)
   }
 }
 
-void DelayMs(uint32_t ms)
+void Delay_MilliSeconds(uint32_t ms)
 {		
 	while(ms--)
 	{
-		DelayUs(1000);
+		Delay_MicroSeconds(1000);
 	}
 }
 
 
-void DelayUs(uint32_t us)
+void Delay_MicroSeconds(uint32_t us)
 {
   //	TIM1->SR = 0;											/* Status Register */
   //	TIM1->PSC = 31;										/* Prescaler value */
   //	TIM1->ARR = us; 									/* Any Value 0xFFFF   */
   //	TIM1->CR1 |= TIM_CR1_CEN;					/* Start the timer counter */
-  __HAL_TIM_SetAutoreload(&htim1,us);
+  __HAL_TIM_SetAutoreload(&htim1,us & 0xFFFF);
   htim1.Instance->SR = 0;
   while (!(TIM1->SR & TIM_SR_UIF)); /* Loop until the update event flag is set */
 }
