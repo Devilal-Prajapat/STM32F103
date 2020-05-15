@@ -1,4 +1,3 @@
-
 /*
 * include "adc.h" file in main.c
 * I am using ADC1 (channel 1 & 2)
