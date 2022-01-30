@@ -33,4 +33,5 @@ uint8_t data[] = {0x01, 0x03, 0x0C, 0x25, 0x00, 0x02};
 int main()
 {
 	printf("0x%02x",cal_crc16(data,sizeof(data)));
+	
 }
