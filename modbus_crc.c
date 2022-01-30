@@ -14,7 +14,7 @@ uint16_t cal_crc16(uint8_t *pbuff, uint16_t len)
 		{
 			if(crc_reg & 0x001 == 0x001)
 			{
-				 crc_reg >>= 1;
+				crc_reg >>= 1;
 				crc_reg ^= CRC_POLY;
 			}
 			else
